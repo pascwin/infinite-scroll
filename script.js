@@ -15,7 +15,6 @@ const imageLoaded = () => {
     if(imagesLoaded === totalImages) {
         ready = true;
         loader.hidden = true;
-        console.log("ready =", ready )
     }
 }
 
@@ -28,8 +27,6 @@ const setAttributes = (element, attributes) => {
 const displayPhotos = () => {
     imagesLoaded = 0;
     totalImages = photosArray.length;
-    console.log("total images", totalImages)
-    console.log("images loaded", imagesLoaded)
     photosArray.forEach((photo) => {
         const item = document.createElement("a");
         setAttributes(item, {
@@ -61,7 +58,6 @@ async function getPhotos() {
 window.addEventListener("scroll", () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 && ready) {
         ready = false;
-        console.log(ready)
         getPhotos();
     }
 })
